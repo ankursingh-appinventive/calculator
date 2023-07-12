@@ -1,11 +1,8 @@
 const express = require('express');
-const routes = require('./routes/route')
+const routes = require('./routes/route');
 
-// const {plus,minus,mul,div,mod,sqr} = require("./controllers/calc");
 
-const app = express()
-// const port = 5500
-// app.use(express.json());
+const app = express();
 app.use(express.json());
 app.use('/',routes);
 app.use('/add',routes);
@@ -14,9 +11,17 @@ app.use('/mul',routes);
 app.use('/div',routes);
 app.use('/mod',routes);
 app.use('/sqr',routes);
-// require('./app');
 
 const port = 5500;
+
+
+app.listen(port, () => {
+  console.log(`Calculator is listening on port ${port}`)
+});
+
+
+
+
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')
 // })
@@ -58,7 +63,3 @@ const port = 5500;
 // })
 
 
-
-app.listen(port, () => {
-  console.log(`Calculator is listening on port ${port}`)
-})
